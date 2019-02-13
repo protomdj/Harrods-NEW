@@ -149,7 +149,7 @@ namespace NewHarrods.PageObjects
             openMM.MoveToElement(Driver.FindElement(By.LinkText(parentCategory))).Build().Perform();
             WaitElementUntil(By.LinkText(megaMenuLink));
             FindElementByElement(By.LinkText(megaMenuLink)).Click();
-            ExplicitWait(4000);
+            ExplicitWait(6000);
         }
         public void GoToCheckout()
         {

@@ -109,7 +109,7 @@ this.FeatureBackground();
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Invalid PIN Number", null, exampleTags);
 #line 20
-  this.ScenarioInitialize(scenarioInfo);
+this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line 6
 this.FeatureBackground();
@@ -140,88 +140,23 @@ this.FeatureBackground();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Buying Controls Section")]
-        [NUnit.Framework.TestCaseAttribute("Harrods Brand", null)]
-        [NUnit.Framework.TestCaseAttribute("Title", null)]
-        [NUnit.Framework.TestCaseAttribute("Price", null)]
-        [NUnit.Framework.TestCaseAttribute("ID", null)]
-        [NUnit.Framework.TestCaseAttribute("Quantity", null)]
-        [NUnit.Framework.TestCaseAttribute("UK Only Delivery Message", null)]
-        [NUnit.Framework.TestCaseAttribute("Delivery & Returns", null)]
-        public virtual void BuyingControlsSection(string buyingControls, string[] exampleTags)
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Buying Controls Section", null, exampleTags);
-#line 35
- this.ScenarioInitialize(scenarioInfo);
-            this.ScenarioStart();
-#line 6
-this.FeatureBackground();
-#line 36
-  testRunner.Given("I am on a gift card PDP", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 37
-  testRunner.Then(string.Format("the \'{0}\' section contains the following", buyingControls), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Check Gift Card purchase options")]
         [NUnit.Framework.TestCaseAttribute("Less than £2500", "Successful", null)]
         [NUnit.Framework.TestCaseAttribute("More than £2500", "Unsuccessful", null)]
         public virtual void CheckGiftCardPurchaseOptions(string amount, string result, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check Gift Card purchase options", null, exampleTags);
-#line 48
+#line 34
   this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line 6
 this.FeatureBackground();
-#line 49
+#line 35
   testRunner.Given("I am on a gift card PDP", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 50
+#line 36
   testRunner.When(string.Format("I add gift cards totalling \'{0}\' to my bag", amount), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 51
+#line 37
   testRunner.Then(string.Format("a \'{0}\' is displayed on screen", result), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Shop More")]
-        [NUnit.Framework.TestCaseAttribute("Harrods", null)]
-        [NUnit.Framework.TestCaseAttribute("Gift Cards", null)]
-        public virtual void ShopMore(string options, string[] exampleTags)
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Shop More", null, exampleTags);
-#line 57
-  this.ScenarioInitialize(scenarioInfo);
-            this.ScenarioStart();
-#line 6
-this.FeatureBackground();
-#line 58
-  testRunner.Given("I am on a gift card PDP", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 59
-  testRunner.Then(string.Format("I am given the shop more \'{0}\'", options), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Overview")]
-        [NUnit.Framework.TestCaseAttribute("details", null)]
-        [NUnit.Framework.TestCaseAttribute("overview", null)]
-        public virtual void Overview(string section, string[] exampleTags)
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Overview", null, exampleTags);
-#line 65
-  this.ScenarioInitialize(scenarioInfo);
-            this.ScenarioStart();
-#line 6
-this.FeatureBackground();
-#line 66
-  testRunner.Given("I am on a gift card PDP", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 67
-  testRunner.Then(string.Format("the product \'{0}\' are displayed", section), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

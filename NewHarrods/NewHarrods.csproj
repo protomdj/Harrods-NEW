@@ -183,16 +183,6 @@
     <Compile Include="PageObjects\PDP.cs" />
     <Compile Include="PageObjects\PLP.cs" />
     <Compile Include="Definitions\SmokePackCheckout.cs" />
-    <Compile Include="Features\Fashion1.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Fashion1.feature</DependentUpon>
-    </Compile>
-    <Compile Include="Features\Fashion2.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Fashion2.feature</DependentUpon>
-    </Compile>
     <Compile Include="Features\Account Settings.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -235,14 +225,6 @@
     <None Include="Features\Contact Us.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Contact Us.feature.cs</LastGenOutput>
-    </None>
-    <None Include="Features\Fashion1.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>Fashion1.feature.cs</LastGenOutput>
-    </None>
-    <None Include="Features\Fashion2.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>Fashion2.feature.cs</LastGenOutput>
     </None>
     <None Include="Features\GiftCardBalance.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

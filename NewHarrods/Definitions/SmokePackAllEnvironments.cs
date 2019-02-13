@@ -258,7 +258,7 @@ namespace NewHarrods.Definitions
             if (templateType == "Fashion 1")
             {
                 parentcategory = "Men";
-                childcategory = "Knitwear";
+                childcategory = "Sweatshirts";
             }
             else if (templateType == "Fashion 2")
             {

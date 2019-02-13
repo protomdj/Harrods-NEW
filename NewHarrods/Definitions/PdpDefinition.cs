@@ -20,11 +20,11 @@ namespace NewHarrods.Definitions
             pdp.ValidatePdpSection();          
         }
 
-
-
-
-
-
+        [Then(@"I validate '(.*)' buying controls")]
+        public void ThenIValidateBuyingControls(string template)
+        {
+            pdp.ValidatePdpControls(template);
+        }
 
     }
 }

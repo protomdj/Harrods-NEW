@@ -65,7 +65,7 @@ namespace NewHarrods.Classes
         public void Logout()
         {
             Screenshot screenshotdriver = ((ITakesScreenshot)ObjectRepository.Driver).GetScreenshot();
-            string name = $"\\{ScenarioContext.Current.ScenarioInfo.Title}{DateTime.Now.ToString("yyyyMMddHHmmss")}";
+            string name = $"\\{ScenarioContext.Current.ScenarioInfo.Title}";
             if (ScenarioContext.Current.ScenarioExecutionStatus.ToString() == "OK")
             {
                 screenshotdriver.SaveAsFile(TestContext.CurrentContext.TestDirectory + path + "\\Passes" + name + ".png", ScreenshotImageFormat.Png);

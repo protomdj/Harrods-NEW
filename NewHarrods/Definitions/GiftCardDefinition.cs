@@ -71,12 +71,6 @@ namespace NewHarrods.Definitions
             Driver.Navigate().GoToUrl(MainBaseClass.EnvURL + "/harrods/gift-card-500-p000000009999991010?bcid=1486033001292");
         }
 
-        [Then(@"the '(.*)' section contains the following")]
-        public void ThenTheSectionContainsTheFollowing(string controls)
-        {
-            gcbTest.ValidateGiftCardPDP(controls);
-        }
-
         [When(@"I add gift cards totalling '(.*)' to my bag")]
         public void WhenIAddGiftCardsTotallingToMyBag(string amount)
         {
@@ -111,39 +105,10 @@ namespace NewHarrods.Definitions
 
         }
 
-        [Then(@"I am given the shop more '(.*)'")]
-        public void ThenIAmGivenTheShopMore(string options)
-        {
-
-            WaitElementUntil(By.XPath("//*[@id=' product_shop-more_gift-cards']"));
-
-            switch (options)
-            {
-                case "Harrods":
-                    Assert.AreEqual(Driver.FindElement(By.XPath("//*[@id=' product_shop-more_harrods']")).Text, options);
-                    break;
-                case "Gift Cards":
-                    Assert.AreEqual(Driver.FindElement(By.XPath("//*[@id=' product_shop-more_gift-cards']")).Text, options);
-                    break;
-            }         
-        }
-
         [Then(@"the product '(.*)' are displayed")]
         public void ThenTheProductAreDisplayed(string section)
         {
             gcbTest.ValidateSection(section);
         }
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }

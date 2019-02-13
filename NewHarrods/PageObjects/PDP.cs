@@ -28,11 +28,13 @@ namespace NewHarrods.PageObjects
         private By _title = By.XPath("//*[@class='buying-controls_name']");
         private By _price = By.XPath("//*[@class='price_amount']");
         private By _id = By.XPath("//*[@class='buying-controls_prodID js-buying-control-prodID']");
-        private By _colour = By.XPath("//*[@class='buying-controls_value js-buying-controls_value--colour']");
-        private By _size = By.XPath("//*[@name='productSize']");
-        private By _quantity = By.XPath("//*[@id='ProductQuantity']");
+       // private By _colour = By.XPath("//*[normalize-space(@class)='field buying-controls_option buying-controls_option--colour js-buying-controls_option--colour ']");
+        private By _size = By.XPath("//*[@class='field buying-controls_option buying-controls_option--size  js-buying-controls_option--size']");
+        private By _quantity = By.XPath("//*[@class='field buying-controls_option buying-controls_option--quantity js-buying-controls_option--quantity']");
         private By _ukonlydelivery = By.XPath("//*[@class='product-attribute-list_item-text']");
         private By _deliveriesandreturns = By.XPath("//*[@id='controls_delivery']");
+        private By _discountmessage = By.XPath("//*[@class='buying-controls_messages']");
+        private By _itemrange = By.XPath("//*[@class='buying-controls_range js-buyingcontrols_range']");
         private By _addtobag = By.XPath("//*[@value='Add to Bag']");
         #endregion
 
@@ -71,56 +73,113 @@ namespace NewHarrods.PageObjects
             DropDownSelectValue(_quantitydropdown, quantityInt);
         }
 
-        public void ValidatePdpControls(string controls)
-        {
-            WaitElementUntil(_addtobag);
+        //public void ValidatePdpControls(string controls)
+        //{
+        //    WaitElementUntil(_addtobag);
 
-            switch (controls)
+        //    switch (controls)
+        //    {
+        //        case "Brand":
+        //            FindElementByElement(_harrodsbrand);
+        //            break;
+        //        case "Title":
+        //            FindElementByElement(_title);
+        //            break;
+        //        case "Price":
+        //            FindElementByElement(_price);
+        //            break;
+        //        case "ID":
+        //            FindElementByElement(_id).Text.Contains(controls);
+        //            break;
+        //        case "Quantity":
+        //            FindElementByElement(_quantity);
+        //            break;
+        //        case "Item Range":
+        //            FindElementByElement(_itemrange);
+        //            break;            
+        //        case "UK Only Delivery Message":
+        //            Assert.AreEqual("UK Delivery Only", FindElementByElement(_ukonlydelivery).Text);
+        //            break;
+        //        case "Delivery & Returns":
+        //            Assert.AreEqual("Delivery & Returns", FindElementByElement(_deliveriesandreturns).Text);
+        //            break;
+        //        case "Colour":
+        //            FindElementByElement(_colour);
+        //            break;
+        //        case "Size":
+        //            FindElementByElement(_size);
+        //            ValidatePdpSizeGuide();
+        //            break;
+        //        case "Discount Message":
+        //            FindElementByElement(_discountmessage);
+        //            break;
+        //        case "Add To Bag":
+        //            FindElementByElement(_addtobag);
+        //            break;
+        //    }
+        //}
+
+        public void ValidatePdpControls(string template)
+        {
+            WaitElementUntil(_price);
+
+            FindElementByElement(_harrodsbrand);
+            FindElementByElement(_title);
+            FindElementByElement(_price);          
+            FindElementByElement(_discountmessage);
+            Assert.AreEqual("Delivery & Returns", FindElementByElement(_deliveriesandreturns).Text);
+            FindElementByElement(_addtobag);
+
+            if (template != "Towels")
             {
-                case "Brand":
-                    FindElementByElement(_harrodsbrand);
-                    break;
-                case "Title":
-                    FindElementByElement(_title);
-                    break;
-                case "Price":
-                    FindElementByElement(_price);
-                    break;
-                case "ID":
-                    FindElementByElement(_id).Text.Contains(controls);
-                    break;
-                case "Quantity":
-                    FindElementByElement(_quantity);
-                    break;
-                case "UK Only Delivery Message":
-                    Assert.AreEqual("UK Delivery Only", FindElementByElement(_ukonlydelivery).Text);
-                    break;
-                case "Delivery & Returns":
-                    Assert.AreEqual("Delivery & Returns", FindElementByElement(_deliveriesandreturns).Text);
-                    break;
-                case "Colour":
-                    FindElementByElement(_colour);
-                    break;
-                case "Size":
-                    FindElementByElement(_size);
-                    break;
-                case "Add To Bag":
-                    FindElementByElement(_addtobag);
-                    break;
+                FindElementByElement(_id);
+                FindElementByElement(_quantity);
             }
+
+            if (template == "Fashion 1" || template == "Pairs")
+            {
+                FindElementByElement(_size);
+                ValidatePdpSizeGuide();
+            }
+
+            if (template != "Tableware" && template != "Gift Card")
+            {
+
+                FindElementCustom("label", "Colour");
+            }
+
+            if (template == "Towels")
+            {
+                FindElementByElement(_itemrange);
+            }
+
+            if (template == "Gift Card")
+            {
+                Assert.AreEqual("UK Delivery Only", FindElementByElement(_ukonlydelivery).Text);
+            }
+
+            Screenshot screenshotdriver = ((ITakesScreenshot)_driver).GetScreenshot();
+
+            screenshotdriver.SaveAsFile(TestContext.CurrentContext.TestDirectory + "\\TestResults" + "\\Templates Validation\\" + template + ".png", ScreenshotImageFormat.Png);
+
         }
 
         public void ValidatePdpSection()
         {
             FindElementByElement(_breadcrumbs);
             FindElementByElement(_overview);
-            FindElementByElement(_details);
+            //FindElementByElement(_details);
             FindElementByElement(_shopmore);
             FindElementByElement(_share);
-            //Fashion1, Pairs
-            FindElementByElement(_sizeguide);
             FindElementByElement(_deliveryreturns);
         }
+
+        public void ValidatePdpSizeGuide()
+        {
+            FindElementByElement(_sizeguide);
+        }
+
+
 
         #endregion
     }
